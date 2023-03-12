@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 100px;
+  padding: 6px 8px;
+
+  border-radius: 4px;
+  border: 1px solid transparent;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  background-color: var(--white);
+  cursor: pointer;
+
+  + .wrapper {
+    margin-left: 16px;
+  }
+}
+
+// Button type
+.rounded {
+  border-color: rgba(22, 24, 35, 0.12);
+  color: rgba(22, 24, 35, 0.75);
+  font-size: 1.4rem;
+  padding: 0 8px;
+  min-width: 90px;
+  min-height: 32px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 8px;
+  border-radius: 999px;
+
+  &:hover {
+    border-color: rgba(22, 24, 35, 0.2);
+  }
+}
+
+.primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+  min-height: 36px;
+
+  &:hover {
+    border-color: var(--primary);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+  }
+
+  &:active {
+    border-color: var(--primary);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)), #fe2c55;
+  }
+}
+
+.outline {
+  color: var(--primary);
+  border-color: currentColor;
+  min-height: 28px;
+  min-width: 88px;
+  padding: 0 10px;
+
+  &:hover {
+    border-color: currentColor;
+    background-color: rgba(254, 44, 85, 0.06);
+  }
+}
+
+.basic {
+  min-width: 110px;
+  min-height: 36px;
+  padding: 0 16px;
+  border-color: rgba(22, 24, 35, 0.12);
+  color: rgb(22, 24, 35);
+  font-size: 1.5rem;
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}

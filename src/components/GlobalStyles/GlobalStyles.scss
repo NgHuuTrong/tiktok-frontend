@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #fe2c55;
+  --primary: rgba(254, 44, 85, 1);
+  --white: #fff;
+  --black: #000;
   --text-color: #333;
 
   // Default layout
@@ -22,10 +24,11 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizeSpeed;
+  overflow: hidden;
 }
 
 input,
@@ -35,6 +38,6 @@ button,
   border: none;
 }
 
-button {
-  cursor: pointer;
+a[href] {
+  text-decoration: none;
 }

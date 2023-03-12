@@ -10,7 +10,7 @@
   height: var(--default-layout-header-height);
   display: flex;
   justify-content: space-around;
-  background: rgba(255, 255, 255, 1);
+  background: var(--white);
   align-items: center;
 }
 
@@ -20,11 +20,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 24px;
 }
 
-.logo {
+.header-left {
   display: flex;
   align-items: center;
+  min-width: 300px;
 }
 
 .search {
@@ -110,4 +113,23 @@
   &:active {
     background: rgba(22, 24, 35, 0.06);
   }
+}
+
+.action {
+  display: flex;
+  align-items: center;
+}
+
+.upload-icon {
+  font-size: 1.8rem;
+  margin-right: 8px;
+}
+
+.upload-span {
+}
+
+.more-icon {
+  margin-left: 16px;
+  font-size: 2rem;
+  padding: 0 11.5px;
 }
