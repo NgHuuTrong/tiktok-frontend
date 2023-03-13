@@ -1,0 +1,19 @@
+.menu-list {
+  width: 223px;
+
+  .menu-item {
+    width: 100%;
+    min-height: 42px;
+    justify-content: flex-start;
+    margin-left: 0;
+
+    white-space: nowrap;
+    font-weight: 600;
+  }
+}
+
+.menu-item {
+  &:hover {
+    background: rgba(22, 24, 35, 0.03);
+  }
+}

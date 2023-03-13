@@ -8,6 +8,8 @@ function Button({
   to,
   href,
   children,
+  leftIcon,
+  rightIcon,
   primary = false,
   outline = false,
   basic = false,
@@ -42,7 +44,9 @@ function Button({
 
   return (
     <Component className={classes} {..._props}>
+      {leftIcon && <span className={cx('left-icon')}>{leftIcon}</span>}
       {children}
+      {rightIcon && <span className={cx('right-icon')}>{rightIcon}</span>}
     </Component>
   );
 }

@@ -71,9 +71,27 @@
   padding: 0 16px;
   border-color: rgba(22, 24, 35, 0.12);
   color: rgb(22, 24, 35);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 600;
 
   &:hover {
     background-color: rgba(22, 24, 35, 0.03);
   }
+}
+
+// Icon
+.left-icon,
+.right-icon {
+  display: flex;
+  justify-content: center;
+  font-size: 1.8rem;
+  width: 22px;
+}
+
+.left-icon {
+  margin-right: 8px;
+}
+
+.right-icon {
+  margin-left: 8px;
 }
