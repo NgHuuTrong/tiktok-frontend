@@ -1,5 +1,6 @@
 .menu-list {
   width: 223px;
+  margin-right: -12px;
 
   .menu-item {
     width: 100%;
@@ -9,11 +10,46 @@
 
     white-space: nowrap;
     font-weight: 600;
+
+    padding: 10px 8px 10px 16px;
+
+    &:hover {
+      background: rgba(22, 24, 35, 0.03);
+    }
   }
 }
 
-.menu-item {
-  &:hover {
-    background: rgba(22, 24, 35, 0.03);
-  }
+// Header
+
+.header {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+  height: 50px;
+
+  margin-top: -8px;
+}
+
+.back-btn {
+  margin-left: 28px;
+  height: 100%;
+  background-color: transparent;
+
+  font-size: 1.8rem;
+  width: 20px;
+  height: 20px;
+
+  color: var(--black);
+
+  cursor: pointer;
+}
+
+.header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-weight: 600;
+  line-height: 2.2rem;
 }

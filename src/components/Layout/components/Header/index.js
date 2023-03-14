@@ -1,14 +1,7 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCircleXmark,
-  faSpinner,
-  faMagnifyingGlass,
-  faPlus,
-  faEllipsisVertical,
-  faEarthAsia,
-} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faPlus, faEllipsisVertical, faEarthAsia } from '@fortawesome/free-solid-svg-icons';
 import { faMoon, faKeyboard, faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
@@ -24,6 +17,32 @@ const MENU_ITEMS = [
   {
     title: 'English',
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    children: {
+      title: 'Language',
+      items: [
+        {
+          code: 'en',
+          title: 'English',
+        },
+        {
+          code: 'vi',
+          title: 'Tiếng Việt',
+          children: {
+            title: 'Language1',
+            items: [
+              {
+                code: 'en',
+                title: 'English1',
+              },
+              {
+                code: 'vi',
+                title: 'Tiếng Việt1',
+              },
+            ],
+          },
+        },
+      ],
+    },
   },
   {
     title: 'Feedback and help',
@@ -42,6 +61,10 @@ const MENU_ITEMS = [
 
 function Header() {
   const [searchResult, setSearchResult] = useState('');
+
+  const handleMenuChange = (menuItem) => {
+    console.log(menuItem);
+  };
 
   return (
     <header className={cx('wrapper')}>
@@ -74,10 +97,6 @@ function Header() {
               onChange={(e) => setSearchResult(e.target.value)}
               spellCheck={false}
             />
-            {/* <button>
-              <FontAwesomeIcon className={cx('clear')} icon={faCircleXmark} />
-            </button> */}
-            {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
             <button className={cx('search-btn')}>
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
@@ -90,7 +109,7 @@ function Header() {
           </Button>
           <Button primary>Log in</Button>
 
-          <Menu items={MENU_ITEMS}>
+          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
             <button className={cx('more-icon')}>
               <FontAwesomeIcon icon={faEllipsisVertical} />
             </button>
