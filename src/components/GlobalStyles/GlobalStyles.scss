@@ -1,12 +1,10 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import url('https://use.typekit.net/emv3zbo.css');
 
 :root {
   --primary: rgba(254, 44, 85, 1);
   --white: #fff;
   --black: #000;
-  --text-color: #333;
 
   // Default layout
   --default-layout-header-height: 60px;
@@ -43,4 +41,28 @@ button,
 a[href] {
   text-decoration: none;
   color: var(--black);
+}
+
+// Custom tippy tooltip
+body {
+  .tippy-box {
+    background-color: rgba(84, 84, 84, 0.92);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    margin-top: 3px;
+  }
+
+  .tippy-arrow {
+    background-color: rgba(84, 84, 84, 0.92);
+  }
+
+  .tippy-content {
+    padding: 8px;
+  }
+
+  .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+    top: -8px;
+  }
 }
