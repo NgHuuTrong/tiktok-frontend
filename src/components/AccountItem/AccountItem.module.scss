@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding: 9px 16px;
+  line-height: 2.1rem;
   cursor: pointer;
 
   &:hover {
@@ -9,21 +10,29 @@
   }
 }
 
-.avatar-img {
-  border-radius: 50%;
+.ava-container {
   width: 40px;
   height: 40px;
-  margin-right: 8px;
+  margin-right: 12px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  vertical-align: middle;
 }
 
 .info-container {
-  flex: 0 1 auto;
+  flex: 1;
   min-width: 0px;
 }
 
 .account-name {
+  line-height: 2.2rem;
   font-size: 1.6rem;
-  font-weight: 500;
+  font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

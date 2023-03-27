@@ -12,10 +12,7 @@ function MenuItem({ item, onClick }) {
   return (
     <>
       <Button leftIcon={item.icon} className={classes} to={item.to} onClick={onClick}>
-        <div>
-          {item.title}
-          {item.button}
-        </div>
+        <div>{item.title}</div>
       </Button>
     </>
   );

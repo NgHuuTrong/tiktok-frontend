@@ -5,7 +5,7 @@ import styles from './Menu.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Layout/components/Popper';
 import MenuItem from './Menuitem';
 import Header from './Header';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -33,6 +33,7 @@ function Menu({ children, items = [], onChange = () => {} }) {
 
   return (
     <Tippy
+      visible
       delay={[0, 600]}
       interactive
       offset={[12, 11]}

@@ -1,22 +1,5 @@
 import classNames from 'classnames/bind';
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faMagnifyingGlass,
-  faPlus,
-  faEllipsisVertical,
-  faA,
-  faGear,
-  faArrowRightToBracket,
-} from '@fortawesome/free-solid-svg-icons';
-import {
-  faMoon,
-  faKeyboard,
-  faCircleQuestion,
-  faMessage,
-  faEnvelopeOpen,
-  faUser,
-} from '@fortawesome/free-regular-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -28,13 +11,28 @@ import { Wrapper as PopperWrapper } from '~/components/Layout/components/Popper'
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Layout/components/Popper/Menu';
-import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+import {
+  DarkModeIcon,
+  FeedbackIcon,
+  GetCoinIcon,
+  InboxIcon,
+  KeyboardIcon,
+  LanguageIcon,
+  LogoutIcon,
+  MessagesIcon,
+  MoreIcon,
+  ProfileIcon,
+  SearchIcon,
+  SettingsIcon,
+  UploadIcon,
+} from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
   {
     title: 'English',
-    icon: <FontAwesomeIcon icon={faA} />,
+    icon: <LanguageIcon />,
     children: {
       title: 'Language',
       items: [
@@ -45,36 +43,22 @@ const MENU_ITEMS = [
         {
           code: 'vi',
           title: 'Tiếng Việt',
-          children: {
-            title: 'Language1',
-            items: [
-              {
-                code: 'en',
-                title: 'English1',
-              },
-              {
-                code: 'vi',
-                title: 'Tiếng Việt1',
-              },
-            ],
-          },
         },
       ],
     },
   },
   {
     title: 'Feedback and help',
-    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    icon: <FeedbackIcon />,
     to: './feedback',
   },
   {
     title: 'Keyboard shortcuts',
-    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    icon: <KeyboardIcon />,
   },
   {
     title: 'Dark mode',
-    icon: <FontAwesomeIcon icon={faMoon} />,
-    button: <button type="button" role="switch" aria-checked="false" className="mode-switch" />,
+    icon: <DarkModeIcon />,
   },
 ];
 
@@ -84,23 +68,23 @@ function Header() {
   const userMenu = [
     {
       title: 'View profile',
-      icon: <FontAwesomeIcon icon={faUser} />,
+      icon: <ProfileIcon />,
       to: './@profile',
     },
     {
       title: 'Get Coins',
-      icon: <FontAwesomeIcon icon={faTiktok} />,
+      icon: <GetCoinIcon />,
       to: './coins',
     },
     {
       title: 'Settings',
-      icon: <FontAwesomeIcon icon={faGear} />,
+      icon: <SettingsIcon />,
       to: './settings',
     },
     ...MENU_ITEMS,
     {
       title: 'Log out',
-      icon: <FontAwesomeIcon icon={faArrowRightToBracket} />,
+      icon: <LogoutIcon />,
       to: './logout',
       separate: true,
     },
@@ -115,7 +99,7 @@ function Header() {
       <div className={cx('inner')}>
         <div className={cx('header-left')}>
           <Link className={cx('logo-container')} to="/">
-            <img src={images.logo} alt="Tiktok" />
+            <Image src={images.logo} alt="Tiktok" />
           </Link>
         </div>
 
@@ -142,25 +126,28 @@ function Header() {
               spellCheck={false}
             />
             <button className={cx('search-btn')}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <SearchIcon />
             </button>
           </div>
         </HeadlessTippy>
 
         <div className={cx('action')}>
-          <Button leftIcon={<FontAwesomeIcon icon={faPlus} />} basic to="/upload">
+          <Button leftIcon={<UploadIcon />} basic to="/upload">
             <span className={cx('upload-span')}>Upload</span>
           </Button>
           {userLogin ? (
             <>
               <Tippy content="Messages" placement="bottom">
-                <button className={cx('action-btn')}>
-                  <FontAwesomeIcon className={cx('message-icon')} icon={faEnvelopeOpen} />
+                <button className={cx('action-btn', 'messages-icon')}>
+                  <MessagesIcon width="2.6rem" height="2.6rem" />
                 </button>
               </Tippy>
               <Tippy content="Inbox" placement="bottom">
                 <button className={cx('action-btn')}>
-                  <FontAwesomeIcon className={cx('inbox-icon')} icon={faMessage} />
+                  <span>
+                    <InboxIcon />
+                  </span>
+                  <sup className={cx('badge')}>1</sup>
                 </button>
               </Tippy>
             </>
@@ -172,14 +159,15 @@ function Header() {
 
           <Menu items={userLogin ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
             {userLogin ? (
-              <img
+              <Image
                 className={cx('user-ava')}
                 src="https://vapa.vn/wp-content/uploads/2022/12/cac-hinh-cute-001-1.jpg"
                 alt="user-avatar"
+                fallback={require('~/assets/images/no-avatar.jpeg')}
               />
             ) : (
               <button className={cx('more-icon')}>
-                <FontAwesomeIcon icon={faEllipsisVertical} />
+                <MoreIcon />
               </button>
             )}
           </Menu>

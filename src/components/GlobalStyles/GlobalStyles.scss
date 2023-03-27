@@ -1,5 +1,4 @@
 @import 'normalize.css';
-@import url('https://use.typekit.net/emv3zbo.css');
 
 :root {
   --primary: rgba(254, 44, 85, 1);
@@ -17,7 +16,7 @@
   padding: 0;
   box-sizing: border-box;
 
-  font-family: proxima-nova, sans-serif;
+  font-family: ProximaNova, sans-serif;
 }
 
 html {
@@ -41,6 +40,49 @@ button,
 a[href] {
   text-decoration: none;
   color: var(--black);
+}
+
+// Fonts embedded
+@font-face {
+  font-family: ProximaNova;
+  src: url('/assets/fonts/Proxima-Nova-Bold.woff2');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: ProximaNova;
+  src: url('/assets/fonts/Proxima-Nova-Semibold.woff2');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: SofiaPro;
+  src: url('/assets/fonts/sofiapro-bold.woff2');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: SofiaPro;
+  src: url('/assets/fonts/sofiapro-semibold.otf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: SofiaPro;
+  src: url('/assets/fonts/sofiapro-regular.woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: SofiaPro;
+  src: url('/assets/fonts/sofiapro-medium.woff2');
+  font-weight: 500;
 }
 
 // Custom tippy tooltip
