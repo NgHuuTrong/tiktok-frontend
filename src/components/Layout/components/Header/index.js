@@ -1,14 +1,10 @@
 import classNames from 'classnames/bind';
-import { useState } from 'react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import { Wrapper as PopperWrapper } from '~/components/Layout/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Layout/components/Popper/Menu';
 import {
@@ -22,11 +18,11 @@ import {
   MessagesIcon,
   MoreIcon,
   ProfileIcon,
-  SearchIcon,
   SettingsIcon,
   UploadIcon,
 } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '../Search';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -63,7 +59,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-  const [searchResult, setSearchResult] = useState('');
   const userLogin = true;
   const userMenu = [
     {
@@ -103,33 +98,8 @@ function Header() {
           </Link>
         </div>
 
-        <HeadlessTippy
-          interactive
-          visible={searchResult.length > 0}
-          render={(attrs) => (
-            <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-              <PopperWrapper>
-                <span className={cx('accounts-span')}>Accounts</span>
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cx('search')}>
-            <input
-              placeholder="Search accounts and videos"
-              value={searchResult}
-              onChange={(e) => setSearchResult(e.target.value)}
-              spellCheck={false}
-            />
-            <button className={cx('search-btn')}>
-              <SearchIcon />
-            </button>
-          </div>
-        </HeadlessTippy>
+        {/* Search */}
+        <Search />
 
         <div className={cx('action')}>
           <Button leftIcon={<UploadIcon />} basic to="/upload">
