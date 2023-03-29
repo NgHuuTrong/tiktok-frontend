@@ -61,16 +61,27 @@
   color: rgba(22, 24, 35, 0.5);
 }
 
-.loading-btn,
 .clear-btn {
-  position: absolute;
-  color: rgba(22, 24, 35, 0.34);
-  font-size: 16px;
-  right: calc(var(--search-button-width));
-  width: 40px;
-  top: 15px;
+  // position: absolute;
+  // color: rgba(22, 24, 35, 0.34);
+  // right: calc(var(--search-button-width));
+  // width: 40px;
+  // top: 15px;
 
   cursor: pointer;
+}
+
+.loading-icon {
+  animation: 0.8s linear 0s infinite normal none running spinner;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .search-btn {
@@ -80,6 +91,7 @@
   border-bottom-right-radius: var(--search-border-radius);
   padding: 11px 16px 11px 12px;
   color: rgba(22, 24, 35, 0.34);
+  cursor: pointer;
   &:hover {
     background: rgba(22, 24, 35, 0.03);
   }
