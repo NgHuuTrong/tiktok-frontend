@@ -7,6 +7,7 @@ import { Wrapper as PopperWrapper } from '~/components/Layout/components/Popper'
 import AccountItem from '~/components/AccountItem';
 import { ClearIcon, LoadingIcon, SearchIcon } from '~/components/Icons';
 import useDebounce from '~/hooks/useDebounce';
+import * as searchService from '~/apiServices/searchServices';
 
 const cx = classNames.bind(styles);
 
@@ -16,7 +17,7 @@ function Search() {
   const [clickInside, setClickInside] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const debounced = useDebounce(searchValue, 600);
+  const debounced = useDebounce(searchValue, 500);
 
   const inputRef = useRef();
 
@@ -41,15 +42,15 @@ function Search() {
       return;
     }
     setLoading(true);
-    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
-      .then((response) => response.json())
-      .then((res) => {
-        setSearchResults(res.data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+
+    const fetchApi = async () => {
+      setLoading(true);
+      const results = await searchService.search(debounced, 'less');
+      setSearchResults(results);
+      setLoading(false);
+    };
+
+    fetchApi();
   }, [debounced]);
   return (
     <HeadlessTippy
