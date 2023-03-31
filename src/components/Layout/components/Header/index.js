@@ -7,6 +7,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import Menu from '~/components/Layout/components/Popper/Menu';
+import routesConfig from '~/config/routes';
+
 import {
   DarkModeIcon,
   FeedbackIcon,
@@ -93,7 +95,7 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <div className={cx('header-left')}>
-          <Link className={cx('logo-container')} to="/">
+          <Link className={cx('logo-container')} to={routesConfig.home}>
             <Image src={images.logo} alt="Tiktok" />
           </Link>
         </div>
@@ -102,7 +104,7 @@ function Header() {
         <Search />
 
         <div className={cx('action')}>
-          <Button leftIcon={<UploadIcon />} basic to="/upload">
+          <Button leftIcon={<UploadIcon />} basic to={routesConfig.upload}>
             <span className={cx('upload-span')}>Upload</span>
           </Button>
           {userLogin ? (

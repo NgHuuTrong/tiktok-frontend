@@ -22,6 +22,12 @@
     color: rgba(22, 24, 35, 0.75);
   }
 
+  input::-webkit-input-placeholder {
+    color: rgb(117, 117, 117);
+    opacity: 1;
+    white-space: pre;
+  }
+
   &::after {
     position: absolute;
     content: '';

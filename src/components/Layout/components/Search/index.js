@@ -6,7 +6,7 @@ import styles from './Search.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Layout/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { ClearIcon, LoadingIcon, SearchIcon } from '~/components/Icons';
-import useDebounce from '~/hooks/useDebounce';
+import { useDebounce } from '~/hooks';
 import * as searchService from '~/apiServices/searchServices';
 
 const cx = classNames.bind(styles);
@@ -22,8 +22,10 @@ function Search() {
   const inputRef = useRef();
 
   const handleSearchChange = (e) => {
-    if (!searchValue && e.target.value === ' ') return;
-    setSearchValue(e.target.value);
+    let searchValue = e.target.value;
+    if (!searchValue.startsWith(' ')) {
+      setSearchValue(searchValue);
+    }
   };
 
   const handleClear = () => {
@@ -33,6 +35,12 @@ function Search() {
   };
 
   const handleClickOutside = () => {
+    setClickInside(false);
+  };
+
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+    inputRef.current.blur();
     setClickInside(false);
   };
 
@@ -83,7 +91,7 @@ function Search() {
           </button>
         )}
         {loading && <LoadingIcon className={cx('loading-icon')} />}
-        <button className={cx('search-btn')}>
+        <button className={cx('search-btn')} onMouseDown={handleMouseDown}>
           <SearchIcon />
         </button>
       </div>
