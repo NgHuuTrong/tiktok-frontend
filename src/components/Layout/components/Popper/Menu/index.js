@@ -19,6 +19,7 @@ function Menu({ children, items = [], hideOnClick = 'false', onChange = () => {}
         <MenuItem
           key={index}
           item={item}
+          language={current.type === 'language'}
           onClick={() => {
             if (!!item.children) {
               setHistory((prev) => [...prev, item.children]);
@@ -49,7 +50,7 @@ function Menu({ children, items = [], hideOnClick = 'false', onChange = () => {}
                 }}
               />
             )}
-            {renderItems()}
+            <div className={cx('items-container')}>{renderItems()}</div>
           </PopperWrapper>
         </div>
       )}

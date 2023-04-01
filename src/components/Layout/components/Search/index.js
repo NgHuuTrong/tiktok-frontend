@@ -61,41 +61,44 @@ function Search() {
     fetchApi();
   }, [debounced]);
   return (
-    <HeadlessTippy
-      interactive
-      visible={clickInside && searchResults.length > 0}
-      render={(attrs) => (
-        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-          <PopperWrapper>
-            <span className={cx('accounts-span')}>Accounts</span>
-            {searchResults.map((result) => (
-              <AccountItem key={result.id} data={result} />
-            ))}
-          </PopperWrapper>
-        </div>
-      )}
-      onClickOutside={handleClickOutside}
-    >
-      <div className={cx('search')}>
-        <input
-          ref={inputRef}
-          placeholder="Search accounts and videos"
-          value={searchValue}
-          onChange={handleSearchChange}
-          spellCheck={false}
-          onFocus={() => setClickInside(true)}
-        />
-        {!!searchValue && !loading && (
-          <button className={cx('clear-btn')} onClick={handleClear}>
-            <ClearIcon />
-          </button>
+    //Interactive tippy element may not be accessible via keyboard navigation because it is not directly after the reference element in the DOM source order. Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context.
+    <div>
+      <HeadlessTippy
+        interactive
+        visible={clickInside && searchResults.length > 0}
+        render={(attrs) => (
+          <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+            <PopperWrapper>
+              <span className={cx('accounts-span')}>Accounts</span>
+              {searchResults.map((result) => (
+                <AccountItem key={result.id} data={result} />
+              ))}
+            </PopperWrapper>
+          </div>
         )}
-        {loading && <LoadingIcon className={cx('loading-icon')} />}
-        <button className={cx('search-btn')} onMouseDown={handleMouseDown}>
-          <SearchIcon />
-        </button>
-      </div>
-    </HeadlessTippy>
+        onClickOutside={handleClickOutside}
+      >
+        <div className={cx('search')}>
+          <input
+            ref={inputRef}
+            placeholder="Search accounts and videos"
+            value={searchValue}
+            onChange={handleSearchChange}
+            spellCheck={false}
+            onFocus={() => setClickInside(true)}
+          />
+          {!!searchValue && !loading && (
+            <button className={cx('clear-btn')} onClick={handleClear}>
+              <ClearIcon />
+            </button>
+          )}
+          {loading && <LoadingIcon className={cx('loading-icon')} />}
+          <button className={cx('search-btn')} onMouseDown={handleMouseDown}>
+            <SearchIcon />
+          </button>
+        </div>
+      </HeadlessTippy>
+    </div>
   );
 }
 

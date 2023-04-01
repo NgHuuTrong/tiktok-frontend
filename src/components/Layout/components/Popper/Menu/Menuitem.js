@@ -5,9 +5,10 @@ import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
-function MenuItem({ item, onClick }) {
+function MenuItem({ item, onClick, language = false }) {
   const classes = cx('menu-item', {
     separate: item.separate,
+    language,
   });
   return (
     <>
