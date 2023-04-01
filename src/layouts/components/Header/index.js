@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import Button from '~/components/Button';
-import Menu from '~/components/Layout/components/Popper/Menu';
-import routesConfig from '~/config/routes';
+import Menu from '~/layouts/components/Popper/Menu';
+import config from '~/config';
 
 import {
   DarkModeIcon,
@@ -195,7 +195,7 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <div className={cx('header-left')}>
-          <Link className={cx('logo-container')} to={routesConfig.home}>
+          <Link className={cx('logo-container')} to={config.routes.home}>
             <Image src={images.logo} alt="Tiktok" />
           </Link>
         </div>
@@ -204,7 +204,7 @@ function Header() {
         <Search />
 
         <div className={cx('action')}>
-          <Button leftIcon={<UploadIcon />} basic to={routesConfig.upload}>
+          <Button leftIcon={<UploadIcon />} basic to={config.routes.upload}>
             <span className={cx('upload-span')}>Upload</span>
           </Button>
           {userLogin ? (

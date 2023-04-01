@@ -3,11 +3,11 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
 import styles from './Search.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Layout/components/Popper';
+import { Wrapper as PopperWrapper } from '~/layouts/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { ClearIcon, LoadingIcon, SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
-import * as searchService from '~/apiServices/searchServices';
+import * as searchService from '~/services/searchService';
 
 const cx = classNames.bind(styles);
 
