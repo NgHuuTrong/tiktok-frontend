@@ -17,7 +17,7 @@ function Search() {
   const [clickInside, setClickInside] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const debounced = useDebounce(searchValue, 500);
+  const debouncedValue = useDebounce(searchValue, 500);
 
   const inputRef = useRef();
 
@@ -45,7 +45,7 @@ function Search() {
   };
 
   useEffect(() => {
-    if (!debounced) {
+    if (!debouncedValue) {
       setSearchResults([]);
       return;
     }
@@ -53,13 +53,13 @@ function Search() {
 
     const fetchApi = async () => {
       setLoading(true);
-      const results = await searchService.search(debounced, 'less');
+      const results = await searchService.search(debouncedValue, 'less');
       setSearchResults(results);
       setLoading(false);
     };
 
     fetchApi();
-  }, [debounced]);
+  }, [debouncedValue]);
   return (
     //Interactive tippy element may not be accessible via keyboard navigation because it is not directly after the reference element in the DOM source order. Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context.
     <div>
