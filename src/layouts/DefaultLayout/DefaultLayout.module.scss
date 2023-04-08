@@ -8,9 +8,17 @@
   margin-top: var(--default-layout-header-height);
   width: var(--default-layout-width);
   display: flex;
-  min-height: 1000px;
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+
+.sidebar {
+  width: var(--default-layout-sidebar-width);
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  min-width: 420px;
   flex: 1;
 }

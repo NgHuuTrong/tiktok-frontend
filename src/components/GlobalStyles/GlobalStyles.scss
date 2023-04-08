@@ -7,8 +7,8 @@
 
   // Default layout
   --default-layout-header-height: 60px;
-  --default-layout-width: 1150px;
-  --default-layout-sidebar-width: 356px;
+  --default-layout-width: 100%;
+  --default-layout-sidebar-width: 240px;
 }
 
 * {
@@ -49,6 +49,7 @@ button,
 [tabindex] {
   outline: none;
   border: none;
+  font-family: ProximaNova, sans-serif;
 }
 
 a[href] {

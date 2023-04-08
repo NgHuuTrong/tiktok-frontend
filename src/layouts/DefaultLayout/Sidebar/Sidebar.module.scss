@@ -1,4 +1,7 @@
 .wrapper {
-  width: var(--default-layout-sidebar-width);
+  position: fixed;
+  left: 0;
+  top: var(--default-layout-header-height);
+  width: 100%;
   min-height: 1000px;
 }
