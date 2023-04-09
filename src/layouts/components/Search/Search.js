@@ -53,8 +53,9 @@ function Search() {
 
     const fetchApi = async () => {
       setLoading(true);
-      const results = await searchService.search(debouncedValue, 'less');
-      setSearchResults(results);
+      const results = await searchService.search(debouncedValue, '10', '0');
+      setSearchResults(results.user_list);
+      console.log(results);
       setLoading(false);
     };
 
@@ -71,7 +72,11 @@ function Search() {
             <PopperWrapper>
               <span className={cx('accounts-span')}>Accounts</span>
               {searchResults.map((result) => (
-                <AccountItem key={result.id} data={result} />
+                <AccountItem
+                  key={result.user.id}
+                  data={result.user}
+                  tick={result.stats.heart >= 25 * Math.pow(10, 6) && result.stats.followerCount >= Math.pow(10, 6)}
+                />
               ))}
             </PopperWrapper>
           </div>

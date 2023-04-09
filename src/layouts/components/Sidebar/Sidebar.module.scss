@@ -2,6 +2,6 @@
   position: fixed;
   left: 0;
   top: var(--default-layout-header-height);
-  width: 100%;
+  width: var(--default-layout-sidebar-width);
   min-height: 1000px;
 }

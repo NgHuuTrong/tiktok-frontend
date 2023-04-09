@@ -17,10 +17,11 @@
       background-color: rgba(22, 24, 35, 0.03);
     }
   }
+
   .language {
     font-family: SofiaPro, sans-serif;
     min-height: 40px;
-    color: rgba(22, 24, 35, 1);
+    color: var(--default-text-color);
     padding: 10px 24px;
     font-size: 1.4rem;
     font-weight: 400;

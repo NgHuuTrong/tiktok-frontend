@@ -8,23 +8,23 @@ import { TickIcon } from '../Icons';
 
 const cx = classNames.bind(styles);
 
-function AccountItem({ data }) {
+function AccountItem({ data, tick }) {
   return (
     <Link to={`/user/${data.nickname}`} className={cx('wrapper')}>
       <div className={cx('ava-container')}>
         <Image
           className={cx('avatar-img')}
-          src={data.avatar}
-          alt={data.full_name}
+          src={data.avatarThumb}
+          alt={data.nickname}
           fallback={require('~/assets/images/no-avatar.jpeg')}
         />
       </div>
       <div className={cx('info-container')}>
         <h4 className={cx('account-name')}>
-          <span>{data.nickname}</span>
-          {data.tick && <TickIcon className={cx('check-icon')} />}
+          <span>{data.uniqueId}</span>
+          {tick && <TickIcon className={cx('check-icon')} />}
         </h4>
-        <p className={cx('username')}>{data.full_name}</p>
+        <p className={cx('username')}>{data.nickname}</p>
       </div>
     </Link>
   );
