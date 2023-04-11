@@ -3,5 +3,55 @@
   left: 0;
   top: var(--default-layout-header-height);
   width: var(--default-layout-sidebar-width);
-  min-height: 1000px;
+  bottom: 0;
+
+  overflow: hidden auto;
+  overscroll-behavior-y: contain;
+  perspective: 1px;
+  transform-style: preserve-3d;
+  perspective-origin: right top;
+  z-index: 99;
+  color: rgba(22, 24, 35, 0.75);
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 26px 8px;
+}
+
+.category-container {
+  padding: 16px 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0;
+    height: 1px;
+    background: rgba(22, 24, 35, 0.2);
+    transform: scaleY(0.5);
+  }
+}
+
+.title {
+  padding: 0 8px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.discover-title {
+  padding-left: 0;
+}
+
+.discover-container {
+  padding: 16px 8px 8px;
+}
+
+.support-container {
+  padding: 16px 0 0 8px;
 }

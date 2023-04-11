@@ -44,23 +44,23 @@ function Search() {
     setClickInside(false);
   };
 
-  useEffect(() => {
-    if (!debouncedValue) {
-      setSearchResults([]);
-      return;
-    }
-    setLoading(true);
+  // useEffect(() => {
+  //   if (!debouncedValue) {
+  //     setSearchResults([]);
+  //     return;
+  //   }
+  //   setLoading(true);
 
-    const fetchApi = async () => {
-      setLoading(true);
-      const results = await searchService.search(debouncedValue, '10', '0');
-      setSearchResults(results.user_list);
-      console.log(results);
-      setLoading(false);
-    };
+  //   const fetchApi = async () => {
+  //     setLoading(true);
+  //     const results = await searchService.search(debouncedValue, '10', '0');
+  //     setSearchResults(results.user_list);
+  //     console.log(results);
+  //     setLoading(false);
+  //   };
 
-    fetchApi();
-  }, [debouncedValue]);
+  //   fetchApi();
+  // }, [debouncedValue]);
   return (
     //Interactive tippy element may not be accessible via keyboard navigation because it is not directly after the reference element in the DOM source order. Using a wrapper <div> or <span> tag around the reference element solves this by creating a new parentNode context.
     <div>
@@ -68,8 +68,8 @@ function Search() {
         interactive
         visible={clickInside && searchResults.length > 0}
         render={(attrs) => (
-          <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-            <PopperWrapper>
+          <div tabIndex="-1" {...attrs}>
+            <PopperWrapper className={cx('search-result')}>
               <span className={cx('accounts-span')}>Accounts</span>
               {searchResults.map((result) => (
                 <AccountItem

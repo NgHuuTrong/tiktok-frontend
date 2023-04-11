@@ -1,4 +1,5 @@
 .wrapper {
+  color: var(--default-text-color);
   display: flex;
   align-items: center;
   padding: 9px 16px;
@@ -46,8 +47,35 @@
   font-size: 1.4rem;
   font-weight: 400;
   color: rgba(22, 24, 35, 0.5);
-  line-height: 20px;
+  line-height: 2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.sidebar {
+  padding: 8px;
+  border-radius: 4px;
+  line-height: 2rem;
+
+  .ava-container {
+    width: 32px;
+    height: 32px;
+  }
+
+  .account-name {
+    font-family: SofiaPro, sans-serif;
+    margin-top: -2px;
+    font-weight: 700;
+  }
+
+  .check-icon {
+    margin-left: 4px;
+  }
+
+  .username {
+    color: rgba(22, 24, 35, 0.75);
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
 }

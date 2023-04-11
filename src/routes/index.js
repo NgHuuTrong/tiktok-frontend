@@ -10,6 +10,7 @@ import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 import NotFound from '~/pages/NotFound';
 import Live from '~/pages/Live';
+import About from '~/pages/About';
 
 const publicRoutes = [
   { path: config.routes.home, component: Home },
@@ -18,6 +19,7 @@ const publicRoutes = [
   { path: config.routes.upload, component: Upload, layout: HeaderOnly },
   { path: config.routes.search, component: Search, layout: null },
   { path: config.routes.live, component: Live },
+  { path: config.routes.about, component: About },
   { path: config.routes.notFound, component: NotFound, layout: null },
 ];
 
