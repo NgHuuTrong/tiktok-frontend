@@ -1,0 +1,78 @@
+.tooltip-container {
+  position: relative;
+  width: 320px;
+  box-sizing: border-box;
+  padding: 20px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: var(--default-text-color);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.ava-container {
+  width: 44px;
+  height: 44px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.account-name {
+  font-family: SofiaPro, sans-serif;
+  line-height: 2.2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.check-icon {
+  margin-left: 4px;
+}
+
+.username {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail-container {
+  margin-top: 8px;
+}
+
+.detail-number {
+  font-weight: 700;
+  margin-right: 6px;
+  font-size: 1.7rem;
+  line-height: 2rem;
+}
+
+.detail-span {
+  color: rgba(22, 24, 35, 0.75);
+  font-size: 17px;
+  line-height: 20px;
+
+  &:not(:last-of-type) {
+    margin-right: 12px;
+  }
+}

@@ -66,6 +66,7 @@ function Search() {
     <div>
       <HeadlessTippy
         interactive
+        appendTo={() => document.body}
         visible={clickInside && searchResults.length > 0}
         render={(attrs) => (
           <div tabIndex="-1" {...attrs}>

@@ -57,6 +57,7 @@ function Menu({ children, items = [], hideOnClick = 'false', onChange = () => {}
   return (
     <Tippy
       delay={[0, 600]}
+      appendTo={() => document.body}
       hideOnClick={hideOnClick}
       interactive
       offset={[12, 11]}
