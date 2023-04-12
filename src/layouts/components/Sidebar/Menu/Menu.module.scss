@@ -8,6 +8,7 @@
   align-items: center;
   padding: 8px;
   border-radius: 4px;
+  transition: background ease-in-out 200ms;
   &:hover {
     background-color: rgba(22, 24, 35, 0.03);
   }

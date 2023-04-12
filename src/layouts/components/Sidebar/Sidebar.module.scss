@@ -4,14 +4,23 @@
   top: var(--default-layout-header-height);
   width: var(--default-layout-sidebar-width);
   bottom: 0;
-
+  z-index: 99;
+  color: rgba(22, 24, 35, 0.75);
   overflow: hidden auto;
   overscroll-behavior-y: contain;
   perspective: 1px;
   transform-style: preserve-3d;
   perspective-origin: right top;
-  z-index: 99;
-  color: rgba(22, 24, 35, 0.75);
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(22, 24, 35, 0.06);
+    }
+  }
 }
 
 .sidebar-container {
@@ -46,6 +55,7 @@
 
 .discover-title {
   padding-left: 0;
+  padding-bottom: 16px;
 }
 
 .discover-container {

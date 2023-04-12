@@ -12,19 +12,26 @@ import {
   LiveActiveIcon,
   LiveIcon,
 } from '~/components/Icons';
+import LinkMenu from './LinkMenu';
+import SuggestedMenu from './SuggestedMenu';
+import FollowingMenu from './FollowingMenu/FollowingMenu';
+import DiscoverMenu from './DiscoverMenu/DiscoverMenu';
+
 // import * as followingService from '~/services/followingService';
 // import * as suggestService from '~/services/suggestService';
-import AccountItem from '~/components/AccountItem/AccountItem';
-import LinkMenu from './LinkMenu';
+// import * as discoverService from '~/services/discoverService';
+// import * as userInfoService from '~/services/userInfoService';
 
-import fakeAPI from '~/assets/json/fakeUserAPI.json';
-import AccountWithTooltip from '~/components/AccountWithTooltip/AccountWithTooltip';
+import fakeFollowingUserAPI from '~/assets/json/fakeFollowingUserAPI.json';
+import fakeSuggestedAccountsAPI from '~/assets/json/fakeSuggestedAccountsAPI.json';
+import fakeDiscoverAPI from '~/assets/json/fakeDiscoverAPI.json';
 
 const cx = classNames.bind(styles);
 
 function Sidebar() {
   const [followings, setFollowings] = useState([]);
   const [suggested, setSuggested] = useState([]);
+  const [discover, setDiscover] = useState([]);
 
   useEffect(() => {
     // const fetchFollowingAPI = async () => {
@@ -41,21 +48,82 @@ function Sidebar() {
     //       unique_id: ele.unique_id,
     //       signature: ele.signature,
     //       total_favorited: ele.total_favorited,
+    //       custom_verify: ele.custom_verify,
     //     };
     //   });
+    //   console.log('Following');
     //   console.log(fake);
     // };
     // fetchFollowingAPI();
-    // const fetchSuggestAPI = async () => {
-    //   const results = await suggestService.getSuggest(process.env.REACT_APP_USER_ID);
-    //   console.log(results);
-    //   setSuggested(results.user_list);
-    // };
-    // fetchSuggestAPI();
 
+    // const fetchSuggestAPI = async () => {
+    //   const results = await suggestService.getSuggest('VN');
+    //   // setSuggested(results.user_list);
+    //   return Promise.all(results.user_list.slice(0, 20).map((ele) => userInfoService.getUserInfo(ele.user.uid)));
+    // };
+    // fetchSuggestAPI()
+    //   .then((usersInfo) =>
+    //     usersInfo.map((userInfo) => {
+    //       return {
+    //         uid: userInfo.user.uid,
+    //         avatar_thumb: userInfo.user.avatar_thumb,
+    //         follower_count: userInfo.user.follower_count,
+    //         following_count: userInfo.user.following_count,
+    //         nickname: userInfo.user.nickname,
+    //         unique_id: userInfo.user.unique_id,
+    //         signature: userInfo.user.signature,
+    //         total_favorited: userInfo.user.total_favorited,
+    //         custom_verify: userInfo.user.custom_verify,
+    //       };
+    //     }),
+    //   )
+    //   // Remove duplicated
+    //   .then((data) =>
+    //     data.filter((element, index) => {
+    //       return data.indexOf(element) === index;
+    //     }),
+    //   )
+    //   .then((data) => {
+    //     console.log('Following');
+    //     console.log(data);
+    //   })
+    //   .catch((err) => console.log(err));
+
+    // const fetchDiscoverAPI = async () => {
+    //   const results = await discoverService.getDiscover('VN');
+    //   setDiscover(results.category_list);
+    //   const fake = results.category_list
+    //     .filter((ele) => ele.desc === 'Trending hashtag' || ele.desc === 'Trending sound')
+    //     .map((ele) => {
+    //       if (ele.desc === 'Trending hashtag') {
+    //         return {
+    //           type: ele.desc,
+    //           name: ele.challenge_info.cha_name,
+    //           view_count: ele.challenge_info.view_count,
+    //           user_count: ele.challenge_info.user_count,
+    //           cid: ele.challenge_info.cid,
+    //           desc: ele.challenge_info.desc,
+    //         };
+    //       }
+    //       return {
+    //         type: ele.desc,
+    //         name: ele.music_info.title,
+    //         user_count: ele.music_info.user_count,
+    //         cid: ele.music_info.id_str,
+    //         desc: ele.music_info.desc,
+    //         author: ele.music_info.author,
+    //         author_avatar: ele.music_info.cover_thumb.url_list[0],
+    //         url: ele.music_info.play_url.url_list[0],
+    //       };
+    //     });
+    //   console.log('Discover');
+    //   console.log(fake);
+    // };
+    // fetchDiscoverAPI();
     const fetchFakeAPI = () => {
-      setFollowings(fakeAPI);
-      setSuggested(fakeAPI);
+      setFollowings(fakeFollowingUserAPI);
+      setSuggested(fakeSuggestedAccountsAPI);
+      setDiscover(fakeDiscoverAPI);
     };
     fetchFakeAPI();
   }, []);
@@ -75,16 +143,17 @@ function Sidebar() {
 
         <div className={cx('category-container')}>
           <h2 className={cx('title')}>Suggested accounts</h2>
-          {suggested && suggested.map((account) => <AccountWithTooltip key={account.uid} data={account} inSidebar />)}
+          <SuggestedMenu suggestedAccounts={suggested} />
         </div>
 
         <div className={cx('category-container')}>
           <h2 className={cx('title')}>Following accounts</h2>
-          {followings && followings.map((account) => <AccountItem key={account.uid} data={account} inSidebar />)}
+          <FollowingMenu followingAccounts={followings} />
         </div>
 
         <div className={cx('category-container', 'discover-container')}>
           <h2 className={cx('title', 'discover-title')}>Discover</h2>
+          <DiscoverMenu discoverTags={discover} />
         </div>
 
         <div className={cx('category-container', 'support-container')}>
