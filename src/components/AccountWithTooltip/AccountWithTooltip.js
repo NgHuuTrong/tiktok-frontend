@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function AccountWithTooltip({ data, tick = false, inSidebar = false }) {
+function AccountWithTooltip({ data, tick = false, inSidebar = false, children }) {
   const handleNumber = (number) => {
     if (number > Math.pow(10, 9)) {
       return (number / Math.pow(10, 9)).toFixed(1) + 'B';
@@ -66,7 +66,8 @@ function AccountWithTooltip({ data, tick = false, inSidebar = false }) {
           </div>
         )}
       >
-        <AccountItem data={data} tick={tick} inSidebar={inSidebar} />
+        {children}
+        {/* <AccountItem data={data} tick={tick} inSidebar={inSidebar} /> */}
       </HeadlessTippy>
     </div>
   );
@@ -76,6 +77,7 @@ AccountWithTooltip.propTypes = {
   data: PropTypes.object.isRequired,
   tick: PropTypes.bool,
   inSidebar: PropTypes.bool,
+  children: PropTypes.node.isRequired,
 };
 
 export default AccountWithTooltip;
