@@ -6,12 +6,17 @@ import { forwardRef } from 'react';
 import Image from '~/components/Image';
 import { Link } from 'react-router-dom';
 import { TickIcon } from '../Icons';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
 const AccountItem = forwardRef(({ data, tick = false, inSidebar = false }, ref) => {
   return (
-    <Link ref={ref} to={`/user/${data.nickname}`} className={cx('wrapper', { sidebar: inSidebar })}>
+    <Link
+      ref={ref}
+      to={`${config.routes.profile.split(':')[0]}@${data.uniqueId || data.unique_id}`}
+      className={cx('wrapper', { sidebar: inSidebar })}
+    >
       <div className={cx('ava-container')}>
         <Image
           className={cx('avatar-img')}

@@ -3,8 +3,8 @@ import { useState } from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './SuggestedMenu.module.scss';
-import AccountWithTooltip from '~/components/AccountWithTooltip/AccountWithTooltip';
-import AccountItem from '~/components/AccountItem/AccountItem';
+import AccountWithTooltip from '~/components/AccountWithTooltip';
+import AccountItem from '~/components/AccountItem';
 
 const cx = classNames.bind(styles);
 
@@ -15,13 +15,13 @@ function SuggestedMenu({ suggestedAccounts }) {
       {suggestedAccounts.length > 0 ? (
         seeAll ? (
           suggestedAccounts.map((account) => (
-            <AccountWithTooltip key={account.uid} data={account} inSidebar tick={account.custom_verify !== ''}>
+            <AccountWithTooltip key={account.uid} data={account} tick={account.custom_verify !== ''}>
               <AccountItem data={account} inSidebar tick={account.custom_verify !== ''} />
             </AccountWithTooltip>
           ))
         ) : (
           suggestedAccounts.slice(0, 5).map((account) => (
-            <AccountWithTooltip key={account.uid} data={account} inSidebar tick={account.custom_verify !== ''}>
+            <AccountWithTooltip key={account.uid} data={account} tick={account.custom_verify !== ''}>
               <AccountItem data={account} inSidebar tick={account.custom_verify !== ''} />
             </AccountWithTooltip>
           ))

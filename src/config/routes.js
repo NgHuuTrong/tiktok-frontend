@@ -1,11 +1,12 @@
 const routes = {
   home: '/',
   following: '/following',
-  profile: '/user/:nickname',
+  profile: '/user/:uniqueId',
   upload: '/upload',
   search: '/search',
   live: '/live',
   about: '/about',
+  music: '/music/:info',
   notFound: '*',
 };
 

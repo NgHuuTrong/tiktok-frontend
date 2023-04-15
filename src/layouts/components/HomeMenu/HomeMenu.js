@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 
-import * as feedService from '~/services/feedService';
-import * as userInfoService from '~/services/userInfoService';
+// import * as feedService from '~/services/feedService';
+// import * as userInfoService from '~/services/userInfoService';
 import styles from './HomeMenu.module.scss';
 
 import fakeFeedAPI from '~/assets/json/fakeFeedAPI.json';
@@ -25,6 +25,7 @@ function HomeMenu() {
     //       music: ele.music,
     //       desc: ele.desc,
     //       aweme_id: ele.aweme_id,
+    //       text_extra: ele.text_extra,
     //     };
     //   };
     //   return Promise.all(results.aweme_list.map((ele) => fake(ele)));
@@ -62,6 +63,7 @@ function HomeMenu() {
     //           title: info.music.title,
     //           author: info.music.author,
     //         },
+    //         text_extra: info.text_extra,
     //       };
     //     }),
     //   )

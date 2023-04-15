@@ -84,7 +84,7 @@ function Sidebar() {
     //     }),
     //   )
     //   .then((data) => {
-    //     console.log('Following');
+    //     console.log('Suggested');
     //     console.log(data);
     //   })
     //   .catch((err) => console.log(err));
