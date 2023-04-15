@@ -1,0 +1,86 @@
+.text-info-container {
+  margin-right: 114px;
+}
+
+.author-container {
+  display: flex;
+  align-items: center;
+}
+
+.author-link {
+  display: block;
+  &:hover {
+    .author-title {
+      text-decoration: underline;
+    }
+  }
+}
+
+.author-title {
+  font-family: SofiaPro, sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.tick-icon {
+  margin-left: 4px;
+}
+
+.author-name {
+  font-weight: 400;
+  font-size: 1.4rem;
+  display: inline-block;
+  line-height: 2.8rem;
+}
+
+.follow-button {
+  right: 0;
+  position: absolute;
+  top: 28px;
+  font-weight: 600;
+}
+
+.desc-container {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: unset;
+}
+
+.video-desc {
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  word-break: break-word;
+}
+
+.hashTag-strong {
+  color: var(--default-text-color);
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.music-container {
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  margin-top: 4px;
+  margin-bottom: 1.2rem;
+}
+
+.music-icon {
+  transform: translateY(4px);
+  margin-right: 5px;
+}
+
+.music-title {
+  &:hover {
+    text-decoration: underline;
+  }
+}
