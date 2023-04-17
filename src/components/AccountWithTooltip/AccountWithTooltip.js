@@ -23,7 +23,6 @@ function AccountWithTooltip({ data, tick = false, children, inHomeMenu = false, 
     }
     return number;
   };
-  console.log(`${config.routes.profile}/${data.uniqueId || data.unique_id}`);
   return (
     <div>
       <HeadlessTippy

@@ -121,7 +121,7 @@ function Sidebar() {
     // };
     // fetchDiscoverAPI();
     const fetchFakeAPI = () => {
-      setFollowings(fakeFollowingUserAPI);
+      // setFollowings(fakeFollowingUserAPI);
       setSuggested(fakeSuggestedAccountsAPI);
       setDiscover(fakeDiscoverAPI);
     };

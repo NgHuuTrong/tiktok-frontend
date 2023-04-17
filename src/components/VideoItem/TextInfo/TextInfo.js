@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
@@ -12,8 +12,14 @@ import { MusicTagIcon, TickIcon } from '~/components/Icons';
 const cx = classNames.bind(styles);
 
 function TextInfo({ data }) {
-  const handleDesc = useMemo(() => {
-    console.log('Handle Desc');
+  const handleDesc = useCallback(() => {
+    if (!data.text_extra.length) {
+      return [
+        {
+          component: <span>{data.desc}</span>,
+        },
+      ];
+    }
     let results = [];
     data.text_extra.forEach((ele, index, array) => {
       let a, b;
@@ -35,13 +41,10 @@ function TextInfo({ data }) {
         results.push({ component: <span>{data.desc.substring(ele.end, data.desc.length)}</span> });
       }
     });
-    if (results === [])
-      results.push({
-        component: <span>{data.desc}</span>,
-      });
     return results;
   }, [data.desc, data.text_extra]);
 
+  const convertedDesc = useMemo(() => handleDesc(), [handleDesc]);
   return (
     <div className={cx('text-info-container')}>
       <div className={cx('author-container')}>
@@ -63,7 +66,7 @@ function TextInfo({ data }) {
       </Button>
       <div className={cx('desc-container')}>
         <div className={cx('video-desc')}>
-          {handleDesc.map((ele, index) => (
+          {convertedDesc.map((ele, index) => (
             <span key={index}>{ele.component}</span>
           ))}
         </div>
